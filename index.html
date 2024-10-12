@@ -24,6 +24,28 @@
       font-size: 1.5em;
     }
 
+    /* Tab bar styles */
+    .tab-bar {
+      display: flex;
+      background-color: #e9ecef;
+      justify-content: space-around;
+      padding: 0.5em 0;
+    }
+
+    .tab {
+      font-size: 1em;
+      padding: 0.5em 1em;
+      color: #007bff;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .tab.active {
+      font-weight: bold;
+      border-bottom: 2px solid #007bff;
+    }
+
     .deal {
       background-color: #fff;
       border-radius: 8px;
@@ -106,6 +128,14 @@
 </head>
 <body>
   <div class="header">Today's Deals</div>
+  
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <div class="tab active" onclick="selectTab('all')">All</div>
+    <div class="tab" onclick="selectTab('electronics')">Electronics</div>
+    <div class="tab" onclick="selectTab('fashion')">Fashion</div>
+  </div>
+
   <div class="container" id="deals-container">
     <!-- Deals will be loaded here -->
   </div>
@@ -125,13 +155,15 @@
     const deals = [
       {
         "id": 1,
+        "category": "electronics",
         "title": "50% Off on Headphones",
         "price": "$49.99",
         "description": "High-quality wireless headphones at half price.",
-        "image": "https://i5.walmartimages.com/asr/045e9711-07cf-47e2-9e4d-b915ae1be1d4.23601b36f43dc873968a2263d9810833.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF"
+        "image": "https://via.placeholder.com/100"
       },
       {
         "id": 2,
+        "category": "fashion",
         "title": "Buy 1 Get 1 Free on T-Shirts",
         "price": "$19.99",
         "description": "Grab two trendy t-shirts for the price of one.",
@@ -139,6 +171,7 @@
       },
       {
         "id": 3,
+        "category": "electronics",
         "title": "30% Off on Sneakers",
         "price": "$69.99",
         "description": "Stylish and comfortable sneakers at a great discount.",
@@ -147,26 +180,28 @@
     ];
 
     // Load deals into the page
-    const loadDeals = () => {
+    const loadDeals = (category = 'all') => {
       const container = document.getElementById('deals-container');
       container.innerHTML = ''; // Clear existing deals
 
-      deals.forEach(deal => {
-        const dealElement = document.createElement('div');
-        dealElement.className = 'deal';
-        dealElement.onclick = () => openModal(deal);
+      deals
+        .filter(deal => category === 'all' || deal.category === category)
+        .forEach(deal => {
+          const dealElement = document.createElement('div');
+          dealElement.className = 'deal';
+          dealElement.onclick = () => openModal(deal);
 
-        dealElement.innerHTML = `
-          <img src="${deal.image}" alt="Deal Image" class="deal-image">
-          <div class="deal-content">
-            <p class="deal-title">${deal.title}</p>
-            <p class="deal-price">${deal.price}</p>
-            <p class="deal-description">${deal.description}</p>
-          </div>
-        `;
-        
-        container.appendChild(dealElement);
-      });
+          dealElement.innerHTML = `
+            <img src="${deal.image}" alt="Deal Image" class="deal-image">
+            <div class="deal-content">
+              <p class="deal-title">${deal.title}</p>
+              <p class="deal-price">${deal.price}</p>
+              <p class="deal-description">${deal.description}</p>
+            </div>
+          `;
+          
+          container.appendChild(dealElement);
+        });
     };
 
     // Open modal with deal details
@@ -183,8 +218,15 @@
       document.getElementById('deal-modal').style.display = 'none';
     };
 
+    // Select tab and filter deals
+    const selectTab = (category) => {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelector(`.tab[onclick="selectTab('${category}')"]`).classList.add('active');
+      loadDeals(category);
+    };
+
     // Initial load of deals
-    window.onload = loadDeals;
+    window.onload = () => loadDeals();
   </script>
 </body>
 </html>
