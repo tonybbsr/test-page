@@ -111,6 +111,7 @@
       width: 90%;
       max-width: 400px;
       text-align: center;
+      position: relative;
     }
 
     .modal-header {
@@ -119,10 +120,13 @@
     }
 
     .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5em;
+      color: #333;
       cursor: pointer;
-      color: #007bff;
-      margin-top: 1em;
-      display: inline-block;
+      text-decoration: none;
     }
 
     .deal-button {
@@ -159,12 +163,12 @@
   <!-- Modal for deal details -->
   <div class="modal" id="deal-modal">
     <div class="modal-content">
+      <a href="javascript:void(0)" class="close-btn" onclick="closeModal()">×</a>
       <h2 class="modal-header" id="modal-title"></h2>
       <img src="" alt="Deal Image" id="modal-image" style="width: 100px; height: 100px; margin-bottom: 1em;">
       <p id="modal-price" style="color: #28a745; font-size: 1.2em;"></p>
       <p id="modal-description"></p>
       <a href="#" id="deal-link" target="_blank" class="deal-button">Go to Deal →</a>
-      <span class="close-btn" onclick="closeModal()">Close</span>
     </div>
   </div>
 
