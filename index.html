@@ -1,5 +1,99 @@
-<html>
-  <body>
-    Hi, This is the test page.
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deals List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      padding: 1em;
+    }
+
+    .header {
+      text-align: center;
+      background-color: #007bff;
+      color: #fff;
+      padding: 1em 0;
+      font-size: 1.5em;
+    }
+
+    .deal {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1em;
+      margin: 0.5em 0;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+    }
+
+    .deal-image {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      margin-right: 1em;
+      object-fit: cover;
+    }
+
+    .deal-content {
+      flex: 1;
+    }
+
+    .deal-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+      margin: 0;
+    }
+
+    .deal-price {
+      font-size: 1em;
+      color: #28a745;
+      margin: 0.5em 0 0;
+    }
+
+    .deal-description {
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Today's Deals</div>
+  <div class="container">
+    <div class="deal">
+      <img src="https://via.placeholder.com/70" alt="Deal Image" class="deal-image">
+      <div class="deal-content">
+        <p class="deal-title">50% Off on Headphones</p>
+        <p class="deal-price">$49.99</p>
+        <p class="deal-description">High-quality wireless headphones at half price.</p>
+      </div>
+    </div>
+
+    <div class="deal">
+      <img src="https://via.placeholder.com/70" alt="Deal Image" class="deal-image">
+      <div class="deal-content">
+        <p class="deal-title">Buy 1 Get 1 Free on T-Shirts</p>
+        <p class="deal-price">$19.99</p>
+        <p class="deal-description">Grab two trendy t-shirts for the price of one.</p>
+      </div>
+    </div>
+
+    <div class="deal">
+      <img src="https://via.placeholder.com/70" alt="Deal Image" class="deal-image">
+      <div class="deal-content">
+        <p class="deal-title">30% Off on Sneakers</p>
+        <p class="deal-price">$69.99</p>
+        <p class="deal-description">Stylish and comfortable sneakers at a great discount.</p>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
