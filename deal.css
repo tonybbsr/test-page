@@ -1,57 +1,78 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
 
-  .container {
-    max-width: 600px;
-    margin: 2em auto;
-    padding: 1em;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+.container {
+  max-width: 600px;
+  margin: 2em auto;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-  .deal-title {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #007bff;
-    margin: 0.5em 0;
-  }
+.deal-title {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #007bff;
+  margin: 0.5em 0;
+}
 
-  .deal-image {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 8px;
-    margin: 1em 0;
-  }
+.deal-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  margin: 1em 0;
+}
 
-  .deal-price {
-    font-size: 1.5em;
-    color: #28a745;
-    margin: 0.5em 0;
-  }
+.deal-price {
+  font-size: 1.5em;
+  color: #28a745;
+  margin: 0.5em 0;
+}
 
-  .deal-description {
-    font-size: 1.1em;
-    color: #666;
-    margin: 1em 0;
-  }
+.deal-description {
+  font-size: 1.1em;
+  color: #666;
+  margin: 1em 0;
+}
 
-  .deal-button {
-    display: inline-block;
-    padding: 0.5em 1em;
-    color: #fff;
-    background-color: #007bff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: bold;
-  }
+.deal-button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+}
 
-  .deal-button:hover {
-    background-color: #0056b3;
-  }
+.deal-button:hover {
+  background-color: #0056b3;
+}
+
+/* Top banner styling */
+.top-banner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2em;
+}
+
+.back-button {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
