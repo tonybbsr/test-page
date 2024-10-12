@@ -54,7 +54,7 @@
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
-      cursor: pointer;
+      cursor: default;
     }
 
     .deal:hover {
@@ -76,8 +76,14 @@
     .deal-title {
       font-size: 1.2em;
       font-weight: bold;
-      color: #333;
+      color: #007bff;
       margin: 0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .deal-title:hover {
+      text-decoration: underline;
     }
 
     .deal-price {
@@ -89,6 +95,17 @@
     .deal-description {
       font-size: 0.9em;
       color: #666;
+    }
+
+    .quick-view-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9em;
+      margin-top: 0.5em;
     }
 
     /* Modal styling */
@@ -213,14 +230,14 @@
         .forEach(deal => {
           const dealElement = document.createElement('div');
           dealElement.className = 'deal';
-          dealElement.onclick = () => openModal(deal);
 
           dealElement.innerHTML = `
             <img src="${deal.image}" alt="Deal Image" class="deal-image">
             <div class="deal-content">
-              <p class="deal-title">${deal.title}</p>
+              <a href="deal.html?id=${deal.id}" class="deal-title">${deal.title}</a>
               <p class="deal-price">${deal.price}</p>
               <p class="deal-description">${deal.description}</p>
+              <button class="quick-view-btn" onclick="event.stopPropagation(); openModal(${deal.id})">Quick View</button>
             </div>
           `;
           
@@ -229,7 +246,10 @@
     };
 
     // Open modal with deal details
-    const openModal = (deal) => {
+    const openModal = (dealId) => {
+      const deal = deals.find(d => d.id === dealId);
+      if (!deal) return;
+
       document.getElementById('modal-title').innerText = deal.title;
       document.getElementById('modal-price').innerText = deal.price;
       document.getElementById('modal-description').innerText = deal.description;
