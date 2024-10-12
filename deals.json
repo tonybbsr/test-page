@@ -1,27 +1,29 @@
 [
     {
-      "id": 1,
-      "title": "50% Off on Headphones",
-      "price": "$49.99",
-      "description": "High-quality wireless headphones at half price.",
-      "image": "https://via.placeholder.com/300",
-      "link": "https://example.com/deal/headphones"
+        "id": 1,
+        "category": "electronics",
+        "title": "50% Off on Headphones",
+        "price": "$49.99",
+        "description": "High-quality wireless headphones at half price.",
+        "image": "https://via.placeholder.com/300",
+        "link": "https://example.com/deal/headphones"
     },
     {
-      "id": 2,
-      "title": "Buy 1 Get 1 Free on T-Shirts",
-      "price": "$19.99",
-      "description": "Grab two trendy t-shirts for the price of one.",
-      "image": "https://via.placeholder.com/300",
-      "link": "https://example.com/deal/t-shirts"
+        "id": 2,
+        "category": "fashion",
+        "title": "Buy 1 Get 1 Free on T-Shirts",
+        "price": "$19.99",
+        "description": "Grab two trendy t-shirts for the price of one.",
+        "image": "https://via.placeholder.com/300",
+        "link": "https://example.com/deal/t-shirts"
     },
     {
-      "id": 3,
-      "title": "30% Off on Sneakers",
-      "price": "$69.99",
-      "description": "Stylish and comfortable sneakers at a great discount.",
-      "image": "https://via.placeholder.com/300",
-      "link": "https://example.com/deal/sneakers"
+        "id": 3,
+        "category": "electronics",
+        "title": "30% Off on Sneakers",
+        "price": "$69.99",
+        "description": "Stylish and comfortable sneakers at a great discount.",
+        "image": "https://via.placeholder.com/300",
+        "link": "https://example.com/deal/sneakers"
     }
-  ]
-  
+]
