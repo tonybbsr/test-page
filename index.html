@@ -32,6 +32,11 @@
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
+      cursor: pointer;
+    }
+
+    .deal:hover {
+      background-color: #e2e6ea;
     }
 
     .deal-image {
@@ -63,37 +68,123 @@
       font-size: 0.9em;
       color: #666;
     }
+
+    /* Modal styling */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .modal-header {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .close-btn {
+      cursor: pointer;
+      color: #007bff;
+      margin-top: 1em;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
   <div class="header">Today's Deals</div>
-  <div class="container">
-    <div class="deal">
-      <img src="https://via.placeholder.com/70" alt="Deal Image" class="deal-image">
-      <div class="deal-content">
-        <p class="deal-title">50% Off on Headphones</p>
-        <p class="deal-price">$49.99</p>
-        <p class="deal-description">High-quality wireless headphones at half price.</p>
-      </div>
-    </div>
+  <div class="container" id="deals-container">
+    <!-- Deals will be loaded here -->
+  </div>
 
-    <div class="deal">
-      <img src="https://via.placeholder.com/70" alt="Deal Image" class="deal-image">
-      <div class="deal-content">
-        <p class="deal-title">Buy 1 Get 1 Free on T-Shirts</p>
-        <p class="deal-price">$19.99</p>
-        <p class="deal-description">Grab two trendy t-shirts for the price of one.</p>
-      </div>
-    </div>
-
-    <div class="deal">
-      <img src="https://via.placeholder.com/70" alt="Deal Image" class="deal-image">
-      <div class="deal-content">
-        <p class="deal-title">50% Off on Sneakers-new</p>
-        <p class="deal-price">$69.99</p>
-        <p class="deal-description">Stylish and comfortable sneakers at a great discount.</p>
-      </div>
+  <!-- Modal for deal details -->
+  <div class="modal" id="deal-modal">
+    <div class="modal-content">
+      <h2 class="modal-header" id="modal-title"></h2>
+      <img src="" alt="Deal Image" id="modal-image" style="width: 100px; height: 100px; margin-bottom: 1em;">
+      <p id="modal-price" style="color: #28a745; font-size: 1.2em;"></p>
+      <p id="modal-description"></p>
+      <span class="close-btn" onclick="closeModal()">Close</span>
     </div>
   </div>
+
+  <script>
+    const deals = [
+      {
+        "id": 1,
+        "title": "50% Off on Headphones",
+        "price": "$49.99",
+        "description": "High-quality wireless headphones at half price.",
+        "image": "https://via.placeholder.com/100"
+      },
+      {
+        "id": 2,
+        "title": "Buy 1 Get 1 Free on T-Shirts",
+        "price": "$19.99",
+        "description": "Grab two trendy t-shirts for the price of one.",
+        "image": "https://via.placeholder.com/100"
+      },
+      {
+        "id": 3,
+        "title": "30% Off on Sneakers",
+        "price": "$69.99",
+        "description": "Stylish and comfortable sneakers at a great discount.",
+        "image": "https://via.placeholder.com/100"
+      }
+    ];
+
+    // Load deals into the page
+    const loadDeals = () => {
+      const container = document.getElementById('deals-container');
+      container.innerHTML = ''; // Clear existing deals
+
+      deals.forEach(deal => {
+        const dealElement = document.createElement('div');
+        dealElement.className = 'deal';
+        dealElement.onclick = () => openModal(deal);
+
+        dealElement.innerHTML = `
+          <img src="${deal.image}" alt="Deal Image" class="deal-image">
+          <div class="deal-content">
+            <p class="deal-title">${deal.title}</p>
+            <p class="deal-price">${deal.price}</p>
+            <p class="deal-description">${deal.description}</p>
+          </div>
+        `;
+        
+        container.appendChild(dealElement);
+      });
+    };
+
+    // Open modal with deal details
+    const openModal = (deal) => {
+      document.getElementById('modal-title').innerText = deal.title;
+      document.getElementById('modal-price').innerText = deal.price;
+      document.getElementById('modal-description').innerText = deal.description;
+      document.getElementById('modal-image').src = deal.image;
+      document.getElementById('deal-modal').style.display = 'flex';
+    };
+
+    // Close modal
+    const closeModal = () => {
+      document.getElementById('deal-modal').style.display = 'none';
+    };
+
+    // Initial load of deals
+    window.onload = loadDeals;
+  </script>
 </body>
 </html>
