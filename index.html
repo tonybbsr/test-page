@@ -124,6 +124,22 @@
       margin-top: 1em;
       display: inline-block;
     }
+
+    .deal-button {
+      display: inline-block;
+      padding: 0.5em 1em;
+      margin-top: 1em;
+      color: #fff;
+      background-color: #007bff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+    .deal-button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
@@ -147,6 +163,7 @@
       <img src="" alt="Deal Image" id="modal-image" style="width: 100px; height: 100px; margin-bottom: 1em;">
       <p id="modal-price" style="color: #28a745; font-size: 1.2em;"></p>
       <p id="modal-description"></p>
+      <a href="#" id="deal-link" target="_blank" class="deal-button">Go to Deal →</a>
       <span class="close-btn" onclick="closeModal()">Close</span>
     </div>
   </div>
@@ -159,7 +176,8 @@
         "title": "50% Off on Headphones",
         "price": "$49.99",
         "description": "High-quality wireless headphones at half price.",
-        "image": "https://via.placeholder.com/100"
+        "image": "https://via.placeholder.com/100",
+        "link": "https://example.com/deal/headphones"
       },
       {
         "id": 2,
@@ -167,7 +185,8 @@
         "title": "Buy 1 Get 1 Free on T-Shirts",
         "price": "$19.99",
         "description": "Grab two trendy t-shirts for the price of one.",
-        "image": "https://via.placeholder.com/100"
+        "image": "https://via.placeholder.com/100",
+        "link": "https://example.com/deal/t-shirts"
       },
       {
         "id": 3,
@@ -175,7 +194,8 @@
         "title": "30% Off on Sneakers",
         "price": "$69.99",
         "description": "Stylish and comfortable sneakers at a great discount.",
-        "image": "https://via.placeholder.com/100"
+        "image": "https://via.placeholder.com/100",
+        "link": "https://example.com/deal/sneakers"
       }
     ];
 
@@ -210,6 +230,7 @@
       document.getElementById('modal-price').innerText = deal.price;
       document.getElementById('modal-description').innerText = deal.description;
       document.getElementById('modal-image').src = deal.image;
+      document.getElementById('deal-link').href = deal.link;  // Set the custom link
       document.getElementById('deal-modal').style.display = 'flex';
     };
 
