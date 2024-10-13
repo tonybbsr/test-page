@@ -19,6 +19,16 @@ const loadDeal = async () => {
         <p class="deal-description">${deal.description}</p>
         <a href="${deal.link}" target="_blank" class="deal-button">Go to Deal →</a>
       `;
+
+      // Set OG meta tags
+      document.getElementById('og-title').content = deal.title;
+      document.getElementById('og-description').content = deal.description;
+      document.getElementById('og-image').content = deal.image;
+      document.getElementById('og-url').content = window.location.href;
+
+      // Update the document title
+      document.title = deal.title;
+      
     } else {
       container.innerHTML = `<p>Sorry, deal not found!</p>`;
     }
